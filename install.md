@@ -16,6 +16,10 @@ npm i --save normalize.css
 
 npm i react-router-dom
 
+6. class name
+
+npm i classnames
+
 # How to format code with prettier
 
 Ctrl + Alt + F
