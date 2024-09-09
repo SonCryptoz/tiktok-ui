@@ -11,15 +11,15 @@ import Search from "@/pages/Search";
 const publicRoutes = [
     {
         path: '/',
-        component: Home
+        component: Home,
     },
     {
         path: '/following',
-        component: Following
+        component: Following,
     },
     {
-        path: '/profile',
-        component: Profile
+        path: '/:nickname',
+        component: Profile,
     },
     {
         path: '/upload',
