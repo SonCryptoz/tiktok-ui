@@ -11,7 +11,7 @@
     display: flex;
     border-radius: var(--search-border-radius);
     padding-left: 16px;
-    border: 1.5px solid transparent;
+    border: 1.5px solid transparent; 
 
     input{
         flex: 1;
@@ -20,6 +20,7 @@
         font-size: 1.6rem;
         background-color: transparent;
         caret-color: var(--primary);
+        font-family: var(--font-family);
     }
 
     input:not(:placeholder-shown) ~ .search-btn{
@@ -46,6 +47,10 @@
     font-size: 1.4rem;
     font-weight: 600;
     color: rgba(22, 24, 35, 0.5);
+}
+
+.account-body{
+    overflow-y: auto;
 }
 
 .clear,

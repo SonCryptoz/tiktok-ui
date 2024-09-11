@@ -1,3 +1,4 @@
+import PropTypes from "prop-types";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCheckCircle } from "@fortawesome/free-solid-svg-icons";
 import { Link } from "react-router-dom";
@@ -24,6 +25,10 @@ function AccountItem({ data }) {
             </div>
         </Link>
     );
+}
+
+AccountItem.propTypes = { // validate the 'data' prop must be an object
+    data: PropTypes.object.isRequired,
 }
 
 export default AccountItem;
