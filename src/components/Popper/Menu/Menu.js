@@ -44,9 +44,29 @@ function Menu({
     const renderItems = () => {
         return current.data.map((item, index) => {
             const isParent = !!item.children; // convert boolean kiểm tra xem có prop children không
-            return <MenuItem key={index} data={item} onClick={() => check(isParent, item.children, item)}/>
-        }
+            return <MenuItem 
+                        key={index} 
+                        data={item} 
+                        onClick={() => check(isParent, item.children, item)}/>
+        });
+    };
+
+    const renderResult = (attrs) => {
+        return (
+            <div className={cx('menu-list')} tabIndex="-1" {...attrs}>
+                <PopperWrapper className={cx('menu-popper')}>
+                    {history.length > 1 && <Header title={current.title} onBack={handleBack}/>}
+                    <div className={cx('menu-body')}>
+                        {renderItems()}
+                    </div>
+                </PopperWrapper>
+            </div>
         );
+    };
+
+    // reset to first menu
+    const handleReset = () => {
+        setHistory(prev => prev.slice(0, 1));
     };
 
     return ( 
@@ -57,17 +77,8 @@ function Menu({
             offset={[12, 8]}
             hideOnClick={hideOnClick}
             placement="bottom-end"
-            render={attrs => (
-                <div className={cx('menu-list')} tabIndex="-1" {...attrs}>
-                    <PopperWrapper className={cx('menu-popper')}>
-                        {history.length > 1 && <Header title={current.title} onBack={handleBack}/>}
-                        <div className={cx('menu-body')}>
-                            {renderItems()}
-                        </div>
-                    </PopperWrapper>
-                </div>
-            )}
-            onHide={() => setHistory(prev => prev.slice(0, 1))}
+            render={renderResult}
+            onHide={handleReset}
         >
             {children}
         </Tippy>

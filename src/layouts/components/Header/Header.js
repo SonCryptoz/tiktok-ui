@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCircleQuestion, faCoins, faEarthAmerica, faEllipsisVertical, faGear, faKeyboard, faSignOut, faUser } from "@fortawesome/free-solid-svg-icons";
 import Tippy from '@tippyjs/react';
 import 'tippy.js/dist/tippy.css';
-import { Link } from "react-router-dom";
+import { Link } from "react-router-dom"; 
 
 import config from '@/config';
 import Button from "@/components/Button";
@@ -202,7 +202,7 @@ function Header() {
                         ) : (
                             <>
                                 <Button text>Upload</Button>
-                                <Button primary className={cx('suka')}>Log in</Button>
+                                <Button primary>Log in</Button>
                             </>
                         )
                     }

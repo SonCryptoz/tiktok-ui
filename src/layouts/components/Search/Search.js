@@ -18,23 +18,23 @@ function Search() {
 
     const [searchValue, setSearchValue] = useState('');
     const [searchResult, setSearchResult] = useState([]);
-    const [showResult, setShowResult] = useState(true);
+    const [showResult, setShowResult] = useState(false);
     const [loading, setLoading] = useState(false);
 
-    const debounced = useDebounce(searchValue, 500);
+    const debouncedValue = useDebounce(searchValue, 500);
 
     const inputRef = useRef();
     
     useEffect(() => {
 
-        if(!debounced.trim()){ // nếu là chuỗi rỗng và tab rỗng
+        if(!debouncedValue.trim()){ // nếu là chuỗi rỗng và tab rỗng
             setSearchResult([]);
             return;
         }
 
         setLoading(true);
 
-        // fetch(`https://tiktok.fullstack.edu.vn/api/users/search?q=${encodeURIComponent(debounced)}&type=less`)
+        // fetch(`https://tiktok.fullstack.edu.vn/api/users/search?q=${encodeURIComponent(debouncedValue)}&type=less`)
         //     .then(res => res.json())
         //     .then(res => {
         //         setSearchResult(res.data);
@@ -46,7 +46,7 @@ function Search() {
         // using promise
         // request.get('users/search', {
         //     params: {
-        //         q: debounced,
+        //         q: debouncedValue,
         //         type: 'less',
         //     }
         // })
@@ -59,14 +59,14 @@ function Search() {
 
         // using async/await
         const fetchAPI = async () => {
-            const result = await searchService.search(debounced);
+            const result = await searchService.search(debouncedValue);
             setSearchResult(result);
             setLoading(false);
         };
 
         fetchAPI();
 
-    }, [debounced]);
+    }, [debouncedValue]);
     
     const handleClear = () => {
         setSearchValue('');

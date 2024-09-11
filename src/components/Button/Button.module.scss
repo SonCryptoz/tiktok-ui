@@ -3,7 +3,7 @@
     padding: 9px 16px;
     border-radius: 4px;
     font-size: 1.6rem;
-    font-weight: 700;
+    font-weight: 700; 
     font-family: var(--font-family);
     cursor: pointer;
     background-color: var(--white);
@@ -23,6 +23,11 @@
 .icon + .title, 
 .title + .icon{
     margin-left: 8px;
+}
+
+.title{
+    display: flex;
+    justify-content: center;
 }
 
 .icon{
